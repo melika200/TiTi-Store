@@ -1,0 +1,36 @@
+/* Footer.css */
+footer {
+  background-color: #01192f;
+  color: #ffffff;
+  padding-top: 20px;
+  padding-bottom: 3px;
+}
+
+footer a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+.store {
+  animation: colorChangee 1s infinite; /* 5 seconds duration, infinite loop */
+}
+@keyframes colorChangee {
+  0% {
+    color: #425a6d;
+  }
+  25% {
+    color: #87bdf0;
+  }
+  50% {
+    color: #06afec;
+  }
+  75% {
+    color: #b6def4cd;
+  }
+  100% {
+    color: #1505fd;
+  }
+}
