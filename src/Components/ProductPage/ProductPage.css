@@ -1,12 +1,18 @@
 .product-card {
-  width: 50%;
+  width: 61%;
   box-shadow: rgba(0, 0, 0, 0.35) 5px 15px 35px;
   border: 2px solid #6c5ce7;
   border-radius: 20px;
   background-color: #fff;
-  padding: 30px auto;
+  padding: 35px auto;
   text-align: center;
   margin: 10% auto;
+}
+.protext{
+  margin: 15px 6px;
+  font-size: 15px;
+  padding: 0 9px;
+  font-family: fantasy;
 }
 .product-card img {
   width: 300px;
@@ -51,4 +57,31 @@
 .product-card a:hover {
 background-color: #214a06;
 color: #fff;
+}
+
+@media screen and (max-width:768px) {
+  .product-card{
+    width: 69%;
+  }
+  .btncom{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .product-card button{
+    width: 30%;
+    padding: 10px;
+  }
+  .product-card a{
+    text-align: center;
+    width: 30%;
+    padding: 10px;
+  }
+}
+@media screen and (max-width:568px) {
+  .product-card{
+    width: 80%;
+    margin-top: 8rem;
+  }
 }
