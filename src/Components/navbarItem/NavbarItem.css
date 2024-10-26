@@ -3,37 +3,50 @@
   padding: 15px 0;
   align-items: center;
 }
-/* Style for the logo */
+
 .logo {
-  width: 100px; /* Adjust size as needed */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 10%; /* Add rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for a 3D effect */
-  transition: transform 0.2s ease; /* Smooth transformation */
+  width: 100px;
+  height: auto;
+  border-radius: 10%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
   margin: 0 8px;
   border-radius: 50% 86%;
+}
 
-  /* Add hover effect */
-  &:hover {
-    transform: scale(1.08); /* Slightly enlarge on hover */
-  }
+.logo:hover {
+  transform: scale(1.08);
+}
+
+.itemtitle {
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+  margin-left: 10px;
+  transition: transform 0.2s ease;
+}
+
+.itemtitle:hover {
+  transform: rotateX(180deg);
 }
 
 .itemnav {
-  transition: transform 0.2s ease; /* Smooth transformation */
+  transition: transform 0.2s ease;
 }
+
 .itemnav:hover {
-  transform: scale(1.08); /* Slightly enlarge on hover */
-  font-family:cursive;
+  transform: scale(1.08);
+  font-family: cursive;
 }
+
 .login {
   background-color: rgb(5, 5, 57);
   color: #fff;
   border-radius: 20px;
-  transition: transform 0.2s ease; /* Smooth transformation */
+  transition: transform 0.2s ease;
+}
 
-  &:hover {
-    color: #fff;
-    transform: rotateZ(360deg);
-  }
+.login:hover {
+  color: #fff;
+  transform: rotateZ(360deg);
 }

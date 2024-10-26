@@ -35,10 +35,10 @@ const IntroId = ({ infoss }) => {
     <>
       <NavbarItem />
       <div className="introid">
-        <h1>{info.title}</h1>
+        <h1 className="my-3">{info.title}</h1>
         <img src={info.image} alt={info.title} />
-        <h5 className="my-2">{info.text}</h5>
-        <p>{info.additionalInfo}</p>
+        <h5 className="my-3 p-2">{info.text}</h5>
+        <p className="textintro">{info.additionalInfo}</p>
         <button
           onClick={backhomeHandler} // Use backhomeHandler here
           className="btnid"
