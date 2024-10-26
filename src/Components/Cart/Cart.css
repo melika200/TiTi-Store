@@ -1,0 +1,44 @@
+.imgcart{
+    width: 50px;;
+    height: 50px;
+    margin-right:6px;
+}
+.textcart{
+    font-size: 15px;
+    font-family: cursive;
+}
+.btncart{
+padding: 2px;
+margin: 3px;
+}
+.btncartt{
+    display: flex;
+    flex-direction: column;
+}
+@keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes glowing {
+    0% {
+      color: #b7e7f1;
+      text-shadow: 0 0 5px rgb(21, 6, 63), 0 0 10px rgb(128, 114, 231), 0 0 15px rgb(128, 140, 215), 0 0 20px rgb(17, 140, 255), 0 0 25px rgb(97, 165, 190), 0 0 30px rgb(27, 115, 127), 0 0 35px rgb(51, 53, 158);
+    }
+    100% {
+      color: rgb(188, 144, 190);
+      text-shadow: 0 0 5px rgb(160, 55, 205), 0 0 10px rgb(101, 20, 117), 0 0 15px rgb(79, 79, 4), 0 0 20px rgb(36, 2, 41), 0 0 25px rgb(23, 62, 3), 0 0 30px rgb(203, 140, 208), 0 0 35px rgb(147, 5, 157);
+    }
+  }
+  
+  .modal-title {
+    font-size: 2em;
+    animation: slideIn 1s ease-in-out, glowing 2s infinite alternate;
+  }
+  

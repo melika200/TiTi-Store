@@ -1,0 +1,74 @@
+.truncated-text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+  max-height: 50px; /* Adjust based on your needs */
+}
+
+.full-text {
+  max-height: none;
+  white-space: normal;
+}
+.card {
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.producthome {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 3.9rem;
+}
+.card-img {
+  width: 100%;
+  height: 300px;
+  padding: 6px 0;
+}
+
+.card-content {
+  padding: 13px;
+}
+
+.card-title {
+  font-size: 0.75em;
+  margin: 0 0 8px;
+}
+
+.card-text {
+  font-size: 15px;
+  margin: 0 0 16px;
+}
+.card-btnn {
+  padding: 10px 11px;
+  font-size: 12px;
+  color: #fff;
+  background-color: #144304;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+.card-btn {
+  padding: 9px 10px;
+  font-size: 13px;
+  color: #fff;
+  background-color: #023220;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 5px;
+}
+
+
+.card-btn:hover {
+  background-color: #9af77e;
+}
+.card-btnn:hover {
+  background-color: #c4f59f;
+}

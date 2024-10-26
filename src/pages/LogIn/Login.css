@@ -1,0 +1,32 @@
+.custom-card {
+    width: 60%;         /* Set the width to 60% */
+    margin: auto;      /* Center the card horizontally */
+    margin: 3rem auto;
+    background-color: #faf9f9; /* White card background */
+    border-radius: 15px;
+}
+
+
+
+.card-title {
+    font-size: 1.5rem; /* Larger title font */
+    font-weight: bold; /* Bold title */
+}
+
+.form-control {
+    border-radius: 10px; /* Rounded input fields */
+}
+
+.btn-primary {
+    background-color: #91b7e1; /* Custom button color */
+    border-color: #007bff; /* Custom button border color */
+}
+
+.btn-primary:hover {
+    background-color: #032244; /* Darker button color on hover */
+    border-color: #0d6dd3; /* Darker button border color on hover */
+}
+
+.mt-3 {
+    margin-top: 1rem; /* Space above submit button */
+}

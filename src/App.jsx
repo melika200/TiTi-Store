@@ -1,9 +1,12 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./App.css";
-import Home from "./pages/Home/Home";
-import ProductsItems from "./pages/ProductsItems/ProductsItems";
-import IntroId from "./pages/IntroId/IntroId";
-import Login from "./pages/LogIn/Login";
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import './App.css';
+import Home from './pages/Home/Home';
+import IntroId from './pages/IntroId/IntroId';
+import Login from './pages/LogIn/Login';
+import ProductPage from './components/ProductPage/ProductPage';
+import ProductNav from './components/ProductNav/ProductNav';
+import Cart from './Components/Cart/Cart';
 
 function App() {
   const information = [
@@ -40,29 +43,19 @@ function App() {
   ];
 
   const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Home />,
-    },
-    {
-      path: "/product",
-      element: <ProductsItems />,
-    },
-    {
-      path: "/introid/:id",
-      element: <IntroId infoss={information} />,
-    },
-    {
-      path:'/login',
-      element:<Login/>
-    }
+    { path: "/", element: <Home /> },
+    { path: "/product", element: <ProductNav /> },
+    { path: "/introid/:id", element: <IntroId infoss={information} /> },
+    { path: "/login", element: <Login /> },
+    { path: "/product/:id", element: <ProductPage /> },
+    { path: "/buy", element: <Cart /> } 
   ]);
 
   return (
-    <>
-      <RouterProvider router={router} />
-    </>
+    <RouterProvider router={router} />
   );
 }
 
 export default App;
+
+
