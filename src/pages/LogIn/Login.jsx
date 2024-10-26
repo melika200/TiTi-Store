@@ -24,6 +24,10 @@ const RegistrationForm = () => {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
+    } else {
+      // Save user info to localStorage on successful submission
+      localStorage.setItem("userInfo", JSON.stringify(formData));
+      alert("Registration successful!"); // Notify user of success
     }
     setValidated(true);
   };
