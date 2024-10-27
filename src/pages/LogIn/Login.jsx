@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { Form, Button, Container, Card } from "react-bootstrap";
 import "./Login.css"; // Import custom CSS
 import NavbarItem from "../../Components/navbarItem/NavbarItem";
-import Footer from "../../components/Footer/Footer";
+import Footer from "../../Components/Footer/Footer";
+import { useNavigate } from "react-router-dom";
 
 const RegistrationForm = () => {
   const [validated, setValidated] = useState(false);
+  const navigate=useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     passport: "",
@@ -27,9 +29,10 @@ const RegistrationForm = () => {
     } else {
       // Save user info to localStorage on successful submission
       localStorage.setItem("userInfo", JSON.stringify(formData));
-      alert("Registration successful!"); // Notify user of success
+      alert("Registration successful! welcome to TiTi Store.Enjoy it :)"); // Notify user of success
     }
     setValidated(true);
+    navigate('/')
   };
 
   return (

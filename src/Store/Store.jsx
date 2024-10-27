@@ -1,4 +1,4 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import {
   persistStore,
   persistReducer,
@@ -8,13 +8,13 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from 'redux-persist';
-import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
-import productReducer from '../Store/ProductSlice/ProductSlice'; // Ensure path is correct
-import cartReducer from '../Store/Cart/CartSlice'; // Ensure path is correct
+} from "redux-persist";
+import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+import productReducer from "../Store/ProductSlice/ProductSlice"; // Ensure path is correct
+import cartReducer from "../Store/Cart/CartSlice"; // Ensure path is correct
 
 const persistConfig = {
-  key: 'root',
+  key: "root",
   storage,
 };
 

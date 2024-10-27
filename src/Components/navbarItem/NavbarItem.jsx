@@ -15,7 +15,7 @@ const NavbarItem = ({ openCart }) => {
           <span className="itemtitle">TiTi-Store</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className="d-flex justify-content-between">
+        <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link className="itemnav" href="/">Home</Nav.Link>
             <Nav.Link className="itemnav" href="/product">Product</Nav.Link>

@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, incrementQuantity, decrementQuantity } from '../../Store/Cart/CartSlice';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
 import "./Cart.css";
 
 const Cart = ({ showModal, handleClose }) => {

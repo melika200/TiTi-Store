@@ -21,11 +21,14 @@
 }
 a {
   all: unset;
+  cursor: pointer;
 }
 a:hover {
   color: rgb(222, 169, 186);
 }
-
+button{
+  cursor: pointer;
+}
 body {
   background-color: black;
 }

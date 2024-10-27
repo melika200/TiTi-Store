@@ -19,6 +19,7 @@ export default function ProductNav() {
     setShowCart(true); // Show the cart immediately
   };
 
+  
   const toggleShowMore = (id) => {
     setShow((prevState) => ({
       ...prevState,
