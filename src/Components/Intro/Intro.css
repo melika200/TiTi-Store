@@ -41,22 +41,21 @@
   color: #333;
 }
 
-
 @keyframes colorChange {
   0% {
-    color: #68886a; 
+    color: #68886a;
   }
   25% {
-    color: #0c500c; 
+    color: #0c500c;
   }
   50% {
-    color: #06ec57; 
+    color: #06ec57;
   }
   75% {
-    color: #72d185cd; 
+    color: #72d185cd;
   }
   100% {
-    color: #85a92b; 
+    color: #85a92b;
   }
 }
 

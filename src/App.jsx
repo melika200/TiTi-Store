@@ -1,12 +1,12 @@
-import React from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './App.css';
-import Home from './pages/Home/Home';
-import IntroId from './pages/IntroId/IntroId';
-import Login from './pages/LogIn/Login';
-import ProductPage from './components/ProductPage/ProductPage';
-import ProductNav from './components/ProductNav/ProductNav';
-import Cart from './Components/Cart/Cart';
+import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./App.css";
+import Home from "./pages/Home/Home";
+import IntroId from "./pages/IntroId/IntroId";
+import Login from "./pages/LogIn/Login";
+import ProductPage from "./components/ProductPage/ProductPage";
+import ProductNav from "./components/ProductNav/ProductNav";
+import Cart from "./Components/Cart/Cart";
 
 function App() {
   const information = [
@@ -48,14 +48,10 @@ function App() {
     { path: "/introid/:id", element: <IntroId infoss={information} /> },
     { path: "/login", element: <Login /> },
     { path: "/product/:id", element: <ProductPage /> },
-    { path: "/buy", element: <Cart /> } 
+    { path: "/buy", element: <Cart /> },
   ]);
 
-  return (
-    <RouterProvider router={router} />
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
-
-

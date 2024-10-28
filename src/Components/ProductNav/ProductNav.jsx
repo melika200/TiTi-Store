@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../Store/ProductSlice/ProductSlice"; // Ensure path is correct
 import { addToCart } from "../../Store/Cart/CartSlice"; // Ensure path is correct
-import './ProductNav.css';
+import "./ProductNav.css";
 import { Link } from "react-router-dom";
 import NavbarItem from "../navbarItem/NavbarItem";
 import Footer from "../Footer/Footer";
@@ -19,7 +19,6 @@ export default function ProductNav() {
     setShowCart(true); // Show the cart immediately
   };
 
-  
   const toggleShowMore = (id) => {
     setShow((prevState) => ({
       ...prevState,

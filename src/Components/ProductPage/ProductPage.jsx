@@ -43,9 +43,13 @@ const ProductPage = () => {
               <p>Price: ${product.price}</p>
               <p className="protext">{product.description}</p>
               <div className="btncom">
-              <button onClick={() => handleAddToCart(product)}>add to cart</button>
-              <Link to="/" className="mx-3">back home</Link>
-              <Link to="/product">Back ProductPage</Link>
+                <button onClick={() => handleAddToCart(product)}>
+                  add to cart
+                </button>
+                <Link to="/" className="mx-3">
+                  back home
+                </Link>
+                <Link to="/product">Back ProductPage</Link>
               </div>
             </div>
           </div>

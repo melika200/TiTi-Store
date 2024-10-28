@@ -2,7 +2,7 @@ import React from "react";
 import { Form, Button, Container, Card } from "react-bootstrap";
 import * as Yup from "yup";
 import "./Login.css";
-import NavbarItem from "../../Components/NavbarItem/NavbarItem";
+import NavbarItem from "../../Components/navbarItem/NavbarItem";
 import Footer from "../../Components/Footer/Footer";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -43,12 +43,12 @@ const RegistrationForm = () => {
   const handleSubmit = (values, { setSubmitting }) => {
     localStorage.setItem("userInfo", JSON.stringify(values));
     Swal.fire({
-      title: 'Success!',
-      text: 'Registration successful! Welcome to TiTi Store. Enjoy it :)',
-      icon: 'success',
-      confirmButtonText: 'OK'
+      title: "Success!",
+      text: "Registration successful! Welcome to TiTi Store. Enjoy it :)",
+      icon: "success",
+      confirmButtonText: "OK",
     }).then(() => {
-      navigate('/');
+      navigate("/");
     });
     setSubmitting(false);
   };
@@ -58,7 +58,9 @@ const RegistrationForm = () => {
       <NavbarItem />
       <Container className="mt-5">
         <Card className="custom-card shadow-lg p-4 rounded">
-          <Card.Title className="text-center mb-4">Registration Form</Card.Title>
+          <Card.Title className="text-center mb-4">
+            Registration Form
+          </Card.Title>
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
@@ -144,7 +146,12 @@ const RegistrationForm = () => {
                     {errors.address}
                   </Form.Control.Feedback>
                 </Form.Group>
-                <Button variant="primary" type="submit" className="w-100 mt-3" disabled={isSubmitting}>
+                <Button
+                  variant="primary"
+                  type="submit"
+                  className="w-100 mt-3"
+                  disabled={isSubmitting}
+                >
                   Submit
                 </Button>
               </Form>

@@ -47,7 +47,7 @@ const IntroId = ({ infoss }) => {
           Back Home
         </button>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };

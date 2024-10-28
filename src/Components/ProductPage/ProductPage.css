@@ -8,7 +8,7 @@
   text-align: center;
   margin: 10% auto;
 }
-.protext{
+.protext {
   margin: 15px 6px;
   font-size: 15px;
   padding: 0 9px;
@@ -49,7 +49,7 @@
   padding: 10px 25px;
   border-radius: 20px;
   margin-bottom: 15px;
-  font-family:'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-size: 16px;
   align-items: center;
   text-align: center;
@@ -57,32 +57,32 @@
 }
 
 .product-card a:hover {
-background-color: #214a06;
-color: #fff;
+  background-color: #214a06;
+  color: #fff;
 }
 
-@media screen and (max-width:768px) {
-  .product-card{
+@media screen and (max-width: 768px) {
+  .product-card {
     width: 69%;
   }
-  .btncom{
+  .btncom {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  .product-card button{
+  .product-card button {
     width: 30%;
     padding: 10px;
   }
-  .product-card a{
+  .product-card a {
     text-align: center;
     width: 30%;
     padding: 10px;
   }
 }
-@media screen and (max-width:568px) {
-  .product-card{
+@media screen and (max-width: 568px) {
+  .product-card {
     width: 80%;
     margin-top: 8rem;
   }

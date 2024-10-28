@@ -5,7 +5,7 @@
 }
 
 .logo {
-  width:95px;
+  width: 95px;
   height: auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease;
@@ -25,8 +25,6 @@
   font-family: monospace;
 }
 
-
-
 .itemnav {
   transition: transform 0.2s ease;
 }
@@ -35,14 +33,14 @@
   transform: scale(1.08);
   font-family: cursive;
 }
-.userstyle{
+.userstyle {
   background-color: rgb(12, 12, 77);
-  padding:5px 1.9rem;
+  padding: 5px 1.9rem;
   color: #fff;
-  border-radius: 20px; 
+  border-radius: 20px;
   font-family: cursive;
 }
-.userstyle:hover{
+.userstyle:hover {
   background-color: rgb(123, 123, 212);
   color: #fff;
 }
