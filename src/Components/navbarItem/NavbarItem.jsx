@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -7,6 +7,14 @@ import { SlBasket } from "react-icons/sl";
 import { CiLogin } from "react-icons/ci";
 
 const NavbarItem = ({ openCart }) => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const userInfo = localStorage.getItem("userInfo");
+    if (userInfo) {
+      setUser(JSON.parse(userInfo));
+    }
+  }, []);
   return (
     <Navbar expand="lg" className="nav-full">
       <Container>
@@ -22,7 +30,11 @@ const NavbarItem = ({ openCart }) => {
             <Nav.Link className="itemnav" onClick={openCart}>basket<SlBasket className="px-1 fs-4" /></Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link className="login ms-auto" href="/login">Log In <CiLogin /></Nav.Link>
+            {user ? (
+              <Nav.Link className="ms-auto userstyle" href="/">{user.username}</Nav.Link>
+            ) : (
+              <Nav.Link className="login ms-auto" href="/login">Log In <CiLogin /></Nav.Link>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

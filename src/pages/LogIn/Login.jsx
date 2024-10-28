@@ -1,45 +1,56 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form, Button, Container, Card } from "react-bootstrap";
-import "./Login.css"; // Import custom CSS
-import NavbarItem from "../../Components/navbarItem/NavbarItem";
+import * as Yup from "yup";
+import "./Login.css";
+import NavbarItem from "../../Components/NavbarItem/NavbarItem";
 import Footer from "../../Components/Footer/Footer";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Formik } from "formik";
 
 const RegistrationForm = () => {
-  const [validated, setValidated] = useState(false);
-  const navigate=useNavigate();
-  const [formData, setFormData] = useState({
+  const navigate = useNavigate();
+
+  const initialValues = {
     username: "",
-    passport: "",
+    password: "",
     email: "",
     phoneNumber: "",
     address: "",
-  });
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    } else {
-      // Save user info to localStorage on successful submission
-      localStorage.setItem("userInfo", JSON.stringify(formData));
-      alert("Registration successful!"); // Notify user of success
-      Swal.fire({
-        title: 'Success!',
-        text: 'Welcome to TiTi Store. Enjoy it :)',
-        icon: 'success',
-        confirmButtonText: 'OK'
-      });
-    }
-    setValidated(true);
-    navigate('/')
+  const validationSchema = Yup.object().shape({
+    username: Yup.string()
+      .min(3, "Username must be between 3 and 15 characters long.")
+      .max(15, "Username must be between 3 and 15 characters long.")
+      .required("Username is required"),
+    password: Yup.string()
+      .min(6, "password number must be between 6 and 9 characters long.")
+      .max(9, "password number must be between 6 and 9 characters long.")
+      .required("password number is required"),
+    email: Yup.string()
+      .email("Please enter a valid email address.")
+      .required("Email is required"),
+    phoneNumber: Yup.string()
+      .matches(/^\d{11}$/, "Phone number must be exactly 11 digits.")
+      .required("Phone number is required"),
+    address: Yup.string()
+      .min(10, "Address must be between 10 and 100 characters long.")
+      .max(100, "Address must be between 10 and 100 characters long.")
+      .required("Address is required"),
+  });
+
+  const handleSubmit = (values, { setSubmitting }) => {
+    localStorage.setItem("userInfo", JSON.stringify(values));
+    Swal.fire({
+      title: 'Success!',
+      text: 'Registration successful! Welcome to TiTi Store. Enjoy it :)',
+      icon: 'success',
+      confirmButtonText: 'OK'
+    }).then(() => {
+      navigate('/');
+    });
+    setSubmitting(false);
   };
 
   return (
@@ -47,107 +58,98 @@ const RegistrationForm = () => {
       <NavbarItem />
       <Container className="mt-5">
         <Card className="custom-card shadow-lg p-4 rounded">
-          <Card.Title className="text-center mb-4">
-            Registration Form
-          </Card.Title>
-          <Form noValidate validated={validated} onSubmit={handleSubmit}>
-            <Form.Group controlId="username">
-              <Form.Label>Username</Form.Label>
-              <Form.Control
-                type="text"
-                name="username"
-                value={formData.username}
-                onChange={handleChange}
-                required
-                minLength={3}
-                maxLength={15}
-                isInvalid={
-                  validated &&
-                  (formData.username.length < 3 ||
-                    formData.username.length > 15)
-                }
-              />
-              <Form.Control.Feedback type="invalid">
-                Username must be between 3 and 15 characters long.
-              </Form.Control.Feedback>
-            </Form.Group>
-
-            <Form.Group controlId="passport">
-              <Form.Label>Passport Number</Form.Label>
-              <Form.Control
-                type="text"
-                name="passport"
-                value={formData.passport}
-                onChange={handleChange}
-                required
-                minLength={6}
-                maxLength={9}
-                isInvalid={
-                  validated &&
-                  (formData.passport.length < 6 || formData.passport.length > 9)
-                }
-              />
-              <Form.Control.Feedback type="invalid">
-                Passport number must be between 6 and 9 characters long.
-              </Form.Control.Feedback>
-            </Form.Group>
-
-            <Form.Group controlId="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                isInvalid={validated && !/^\S+@\S+\.\S+$/.test(formData.email)}
-              />
-              <Form.Control.Feedback type="invalid">
-                Please enter a valid email address.
-              </Form.Control.Feedback>
-            </Form.Group>
-
-            <Form.Group controlId="phoneNumber">
-              <Form.Label>Phone Number</Form.Label>
-              <Form.Control
-                type="tel"
-                name="phoneNumber"
-                value={formData.phoneNumber}
-                onChange={handleChange}
-                required
-                pattern="\d{11}"
-                isInvalid={validated && !/^\d{11}$/.test(formData.phoneNumber)}
-              />
-              <Form.Control.Feedback type="invalid">
-                Phone number must be exactly 10 digits.
-              </Form.Control.Feedback>
-            </Form.Group>
-
-            <Form.Group controlId="address">
-              <Form.Label>Address</Form.Label>
-              <Form.Control
-                type="text"
-                name="address"
-                value={formData.address}
-                onChange={handleChange}
-                required
-                minLength={10}
-                maxLength={100}
-                isInvalid={
-                  validated &&
-                  (formData.address.length < 10 ||
-                    formData.address.length > 100)
-                }
-              />
-              <Form.Control.Feedback type="invalid">
-                Address must be between 10 and 100 characters long.
-              </Form.Control.Feedback>
-            </Form.Group>
-
-            <Button variant="primary" type="submit" className="w-100 mt-3">
-              Submit
-            </Button>
-          </Form>
+          <Card.Title className="text-center mb-4">Registration Form</Card.Title>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
+          >
+            {({
+              values,
+              errors,
+              touched,
+              handleChange,
+              handleBlur,
+              handleSubmit,
+              isSubmitting,
+            }) => (
+              <Form noValidate onSubmit={handleSubmit}>
+                <Form.Group controlId="username">
+                  <Form.Label>Username</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="username"
+                    value={values.username}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    isInvalid={touched.username && !!errors.username}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.username}
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group controlId="password">
+                  <Form.Label>password Number</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="password"
+                    value={values.password}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    isInvalid={touched.password && !!errors.password}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.password}
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group controlId="email">
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control
+                    type="email"
+                    name="email"
+                    value={values.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    isInvalid={touched.email && !!errors.email}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.email}
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group controlId="phoneNumber">
+                  <Form.Label>Phone Number</Form.Label>
+                  <Form.Control
+                    type="tel"
+                    name="phoneNumber"
+                    value={values.phoneNumber}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    isInvalid={touched.phoneNumber && !!errors.phoneNumber}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.phoneNumber}
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group controlId="address">
+                  <Form.Label>Address</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="address"
+                    value={values.address}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    isInvalid={touched.address && !!errors.address}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.address}
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <Button variant="primary" type="submit" className="w-100 mt-3" disabled={isSubmitting}>
+                  Submit
+                </Button>
+              </Form>
+            )}
+          </Formik>
         </Card>
       </Container>
       <Footer />
