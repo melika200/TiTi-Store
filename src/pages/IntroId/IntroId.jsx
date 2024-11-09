@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./IntroId.css"; // Optional: CSS for styling
 import NavbarItem from "../../Components/navbarItem/NavbarItem";
 import Footer from "../../Components/Footer/Footer";
+import Cart from "../../Components/Cart/Cart";
 
 const IntroId = ({ infoss }) => {
   const { id } = useParams();
   const info = infoss.find((item) => item.id === parseInt(id));
+  const [showCart, setShowCart] = useState(false);
+
   const navigate = useNavigate();
   const backhomeHandler = () => {
     Swal.fire({
@@ -31,9 +34,10 @@ const IntroId = ({ infoss }) => {
     });
   };
 
+
   return (
     <>
-      <NavbarItem />
+      <NavbarItem openCart={() => setShowCart(true)} />
       <div className="introid">
         <h1 className="my-3">{info.title}</h1>
         <img src={info.image} alt={info.title} />
@@ -46,6 +50,8 @@ const IntroId = ({ infoss }) => {
         >
           Back Home
         </button>
+        <Cart showModal={showCart} handleClose={() => setShowCart(false)} />
+
       </div>
       <Footer />
     </>
